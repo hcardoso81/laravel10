@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
     public function index(): View
     {
-        return view('courses.index');
+
+        $courses = Course::paginate();
+        return view('courses.index', compact('courses'));
     }
 
     public function create(): View
@@ -17,8 +19,9 @@ class CourseController extends Controller
         return view('courses.create');
     }
 
-    public function show(string $course, string $category = null): View
+    public function show(int $id): View
     {
-        return view('courses.show', ['course' => $course, 'category' => $category]);
+        $course = Course::find($id);
+        return view('courses.show', compact('course'));
     }
 }
