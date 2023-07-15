@@ -41,6 +41,13 @@ class CourseController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
+
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'category' => 'required'
+        ]);
+
         $course = new Course();
         $course->setAttribute('name', $request->name);
         $course->setAttribute('description', $request->description);
@@ -86,6 +93,12 @@ class CourseController extends Controller
 
     public function update(Request $request, Course $course): RedirectResponse
     {
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'category' => 'required'
+        ]);
+
         $course->setAttribute('name', $request->name);
         $course->setAttribute('description', $request->description);
         $course->setAttribute('category', $request->category);
