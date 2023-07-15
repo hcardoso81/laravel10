@@ -42,14 +42,13 @@ class CourseController extends Controller
 
     public function store(StoreCourse $request): RedirectResponse
     {
-
-   
-
-        $course = new Course();
+        /*$course = new Course();
         $course->setAttribute('name', $request->name);
         $course->setAttribute('description', $request->description);
         $course->setAttribute('category', $request->category);
-        $course->save();
+        $course->save();*/
+
+        $course = Course::create($request->all());
         return redirect()->route('courses.show', $course);
     }
 
@@ -90,18 +89,25 @@ class CourseController extends Controller
 
     public function update(Request $request, Course $course): RedirectResponse
     {
-        //Other way of validation.  If are few fields, maybe not necessary create a FormRequest
+        //Other way of validation. If are few fields, maybe not necessary create a FormRequest
         $request->validate([
             'name' => 'required',
             'description' => 'required|min:10',
             'category' => 'required'
         ]);
 
-        $course->setAttribute('name', $request->name);
+        /*$course->setAttribute('name', $request->name);
         $course->setAttribute('description', $request->description);
         $course->setAttribute('category', $request->category);
-        $course->save();
+        $course->save();*/
 
+        $course->update($request->all());
         return redirect()->route('courses.show', $course);
+    }
+
+    public function destroy(Course $course): RedirectResponse
+    {
+        $course->delete();
+        return redirect()->route('courses.index');
     }
 }

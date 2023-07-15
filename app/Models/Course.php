@@ -8,14 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     use HasFactory;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'description',
-        'category',
-    ];
+    //protected $fillable = ['name', 'description', 'category'];
+
+    /**
+     * The attributes protected that are ignored when mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $guarded = [];
 }
