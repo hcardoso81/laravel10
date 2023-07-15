@@ -1,7 +1,7 @@
 @extends('layouts.page')
 @section('title', 'Edit Course ' . $course->name)
 @section('content')
-    <h1>P&aacute;gina edici&oacute;n curso </h1>
+    <h3>P&aacute;gina edici&oacute;n curso </h3>
     <a href="{{ route('courses.index') }}">Volver a cursos</a>
     <br>
     <form action="{{ route('courses.update', $course) }}" method="post">

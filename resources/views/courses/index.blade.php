@@ -1,7 +1,7 @@
 @extends('layouts.page')
 @section('title', 'Cursos')
 @section('content')
-    <h1>Pagina principal de los cursos </h1>
+    <h3>Pagina principal de los cursos </h3>
     <a href="{{ route('courses.create') }}">Crear un Curso</a>
     <ul>
         @foreach ($courses as $course)

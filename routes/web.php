@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', HomeController::class);
+Route::get('/', HomeController::class)->name('home');
 
 /*Route::controller(CourseController::class)->group(function () {
     Route::get('/courses/', 'index')->name('courses.index');
@@ -34,3 +34,9 @@ Route::get('/', HomeController::class);
  *  
  * */
 Route::resource('asignaturas', CourseController::class)->parameters(['asignaturas' => 'course'])->names('courses');
+
+/**
+ * This is a way to define a route, is used only when the view has content static.
+ */
+
+Route::view('ours', 'ours')->name('ours');

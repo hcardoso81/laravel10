@@ -1,7 +1,7 @@
 @extends('layouts.page')
 @section('title', 'Create')
 @section('content')
-    <h1>P&aacute;gina creaci&oacute;n Curso </h1>
+    <h3>P&aacute;gina creaci&oacute;n Curso </h3>
     <a href="{{ route('courses.index') }}">Volver a cursos</a>
     <form action="{{ route('courses.store') }}" method="post">
         @csrf
