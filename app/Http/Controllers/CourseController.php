@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCourse;
 use App\Models\Course;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -35,18 +36,14 @@ class CourseController extends Controller
     /**
      * Store function. It is responsible for storing the course in database.
      * 
-     * @param Request $request. The data submitted by the form.
+     * @param StoreCourse $request. The data submitted by the form.
      * @return RedirectResponse. Redirect to course single page.
      */
 
-    public function store(Request $request): RedirectResponse
+    public function store(StoreCourse $request): RedirectResponse
     {
 
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'category' => 'required'
-        ]);
+   
 
         $course = new Course();
         $course->setAttribute('name', $request->name);
@@ -95,7 +92,7 @@ class CourseController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'description' => 'required',
+            'description' => 'required|min:10',
             'category' => 'required'
         ]);
 

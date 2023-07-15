@@ -9,7 +9,7 @@
         @method('put')
         <label for="name">Nombre</label>
         <br>
-        <input type="text" id="name" name="name" value="{{ $course->name }}">
+        <input type="text" id="name" name="name" value="{{ old('name', $course->name) }}">
         @error('name')
             <br>
             <small>{{ $message }}</small>
@@ -19,7 +19,7 @@
         <br>
         <label for="description">Descripci&oacute;n</label>
         <br>
-        <textarea id="description" name="description">{{ $course->description }}</textarea>
+        <textarea id="description" name="description">{{ old('description', $course->description) }}</textarea>
         @error('description')
             <br>
             <small>{{ $message }}</small>
@@ -29,7 +29,7 @@
         <br>
         <label for="category">Categor&iacute;a</label>
         <br>
-        <input type="text" id="category" name="category" value="{{ $course->category }}">
+        <input type="text" id="category" name="category" value="{{ old('category', $course->category) }}">
         @error('category')
             <br>
             <small>{{ $message }}</small>
