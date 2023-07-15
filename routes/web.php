@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class);
 
-Route::controller(CourseController::class)->group(function () {
+/*Route::controller(CourseController::class)->group(function () {
     Route::get('/courses/', 'index')->name('courses.index');
     Route::get('/courses/create', 'create')->name('courses.create');
     Route::post('/courses/', 'store')->name('courses.store');
@@ -25,4 +25,12 @@ Route::controller(CourseController::class)->group(function () {
     Route::get('/courses/{course}/edit', 'edit')->name('courses.edit');
     Route::put('/courses/{course}', 'update')->name('courses.update');
     Route::delete('/courses/{course}', 'destroy')->name('courses.destroy');
-});
+});*/
+
+/***
+ * It's the same that. It's a convention. Generate CRUD urls dinamically.
+ * Also allow translating base url
+ * parameters method is used for input parameters in functions show, edit, delete, that receives a course
+ *  
+ * */
+Route::resource('asignaturas', CourseController::class)->parameters(['asignaturas' => 'course'])->names('courses');

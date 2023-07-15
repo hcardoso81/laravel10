@@ -45,3 +45,7 @@ Templates Blade
 ### Validations
 
 -   php artisan make:request StoreCourse
+
+### Routes
+
+-   php artisan route:list
