@@ -90,6 +90,7 @@ class CourseController extends Controller
 
     public function update(Request $request, Course $course): RedirectResponse
     {
+        //Other way of validation.  If are few fields, maybe not necessary create a FormRequest
         $request->validate([
             'name' => 'required',
             'description' => 'required|min:10',
