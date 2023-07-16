@@ -1,3 +1,3 @@
 <footer>
-    <p>footer</p>
+    <p>Este es el pie de página.</p>
 </footer>

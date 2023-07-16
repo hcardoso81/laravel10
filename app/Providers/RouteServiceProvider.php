@@ -31,7 +31,6 @@ class RouteServiceProvider extends ServiceProvider
         Route::resourceVerbs([
             'create' => 'crear',
             'edit' => 'editar',
-            'our' => 'nosostros',
         ]);
 
         RateLimiter::for('api', function (Request $request) {

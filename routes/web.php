@@ -1,12 +1,9 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-
-use App\Mail\ContactMailable;
-use Illuminate\Support\Facades\Mail;
-
 
 
 /*
@@ -44,10 +41,9 @@ Route::resource('asignaturas', CourseController::class)->parameters(['asignatura
  * This is a way to define a route, is used only when the view has content static.
  */
 
-Route::view('ours', 'ours')->name('ours');
+Route::view('nosotros', 'ours')->name('ours');
 
-Route::get('contact', function () {
-    $mail = new ContactMailable;
-    Mail::to('hernan.f.cardoso@gmail.com')->send($mail);
-    return "Mensaje enviado";
+Route::controller(ContactController::class)->group(function () {
+    Route::get('contactanos', 'index')->name('contact.index');
+    Route::post('contactanos', 'store')->name('contact.store');
 });

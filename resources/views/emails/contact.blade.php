@@ -16,6 +16,9 @@
 <body>
     <h1>Correo Electrónico</h1>
     <p>Correo enviado por Laravel</p>
+    <p><strong>Nombre: </strong>{{ $contact['name'] }}</p>
+    <p><strong>Email: </strong>{{ $contact['email'] }}</p>
+    <p><strong>Mensaje: </strong>{{ $contact['message'] }}</p>
 </body>
 
 </html>
