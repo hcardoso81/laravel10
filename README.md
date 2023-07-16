@@ -49,3 +49,7 @@ Templates Blade
 ### Routes
 
 -   php artisan route:list
+
+### Mail
+
+-   php artisan make:mail ContactMailable

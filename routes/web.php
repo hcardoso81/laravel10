@@ -4,6 +4,11 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
+use App\Mail\ContactMailable;
+use Illuminate\Support\Facades\Mail;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,3 +45,9 @@ Route::resource('asignaturas', CourseController::class)->parameters(['asignatura
  */
 
 Route::view('ours', 'ours')->name('ours');
+
+Route::get('contact', function () {
+    $mail = new ContactMailable;
+    Mail::to('hernan.f.cardoso@gmail.com')->send($mail);
+    return "Mensaje enviado";
+});
